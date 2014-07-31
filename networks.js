@@ -13,8 +13,8 @@ exports.livenet = {
   hkeyPublicVersion: 0x0488b21e,
   hkeyPrivateVersion: 0x0488ade4,
   genesisBlock: {
-    hash: hex('2a8e100939494904af825b488596ddd536b3a96226ad02e0f7ab7ae472b27a8e'),
-    merkle_root: hex('8957e5e8d2f0e90c42e739ec62fcc5dd21064852da64b6528ebd46567f222169'),
+    hash: buffertools.reverse(hex('2A8E100939494904AF825B488596DDD536B3A96226AD02E0F7AB7AE472B27A8E')),
+    merkle_root: buffertools.reverse(hex('8957E5E8D2F0E90C42E739EC62FCC5DD21064852DA64B6528EBD46567F222169')),
     height: 0,
     nonce: 538548,
     version: 1,
@@ -39,8 +39,8 @@ exports.testnet = {
   hkeyPublicVersion: 0x043587cf,
   hkeyPrivateVersion: 0x04358394,
   genesisBlock: {
-    hash: hex('f423fe8eb935851f4baa40cfeb7120d84be32adf7876abf0fd293358a90f27a0'),
-    merkle_root: hex('6921227F5646BD8E52B664DA52480621DDC5FC62EC39E7420CE9F0D2E8E55789'),
+    hash: buffertools.reverse(hex('F423FE8EB935851F4BAA40CFEB7120D84BE32ADF7876ABF0FD293358A90F27A0')),
+    merkle_root: buffertools.reverse(hex('6921227F5646BD8E52B664DA52480621DDC5FC62EC39E7420CE9F0D2E8E55789')),
     height: 0,
     nonce: 2543986232,
     version: 1,
