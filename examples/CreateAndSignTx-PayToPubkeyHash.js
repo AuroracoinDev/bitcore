@@ -16,7 +16,7 @@ var run = function() {
     confirmations: 2
   }];
 
-  console.log('TX Data: BTC:' + amt + ' => ' + toAddress + ', change To:' + changeAddressString);
+  console.log('TX Data: AUR:' + amt + ' => ' + toAddress + ', change To:' + changeAddressString);
   console.log('Unspends Outputs:', utxos);
 
 

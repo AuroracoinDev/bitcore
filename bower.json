@@ -6,14 +6,14 @@
   "authors": [
     "Ryan X. Charles (<ryan@bitpay.com>)"
   ],
-  "description": "A pure, powerful core for your bitcoin project.",
+  "description": "A pure, powerful core for your auroracoin project.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
-    "bitcoin",
+    "auroracoin",
     "bitcore",
-    "btc",
+    "aur",
     "satoshi"
   ],
   "license": "MIT",

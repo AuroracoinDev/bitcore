@@ -478,8 +478,8 @@ exports.ZERO_VALUE = buffertools.fill(new Buffer(8), 0);
 var INT64_MAX = new Buffer('ffffffffffffffff', 'hex');
 exports.INT64_MAX = INT64_MAX;
 
-// How much of Bitcoin's internal integer coin representation
-// makes 1 BTC
+// How much of Auroracoin's internal integer coin representation
+// makes 1 AUR
 exports.COIN = 100000000;
 exports.BIT = 100;
 

@@ -8,17 +8,17 @@ var run = function() {
   var config = {
     networkName: 'testnet',
     host: 'localhost',
-    port: 18333
+    port: 19117
   };
 
 
   var nm = new NetworkMonitor.create(config);
   // monitor incoming transactions to http://tpfaucet.appspot.com/ donation address
-  nm.incoming('msj42CCGruhRsFrGATiUuh25dtxYtnpbTx', function(tx) {
-    console.log('Donation to tpfaucet! '+JSON.stringify(tx.getStandardizedObject()));
+  nm.incoming('TH7Ecpohirri2RjFasVmecSLkUEy9PXFNh', function(tx) {
+    console.log('Donation to joi! '+JSON.stringify(tx.getStandardizedObject()));
   });
 
-  // connect to bitcoin network and start listening
+  // connect to auroracoin network and start listening
   nm.start();
 
 };

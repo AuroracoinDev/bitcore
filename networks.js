@@ -6,56 +6,50 @@ var hex = function(hex) {
 
 exports.livenet = {
   name: 'livenet',
-  magic: hex('f9beb4d9'),
-  addressVersion: 0x00,
-  privKeyVersion: 128,
+  magic: hex('fda4dc6c'),
+  addressVersion: 0x17,
+  privKeyVersion: 151,
   P2SHVersion: 5,
   hkeyPublicVersion: 0x0488b21e,
   hkeyPrivateVersion: 0x0488ade4,
   genesisBlock: {
-    hash: hex('6FE28C0AB6F1B372C1A6A246AE63F74F931E8365E15A089C68D6190000000000'),
-    merkle_root: hex('3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A'),
+    hash: hex('2a8e100939494904af825b488596ddd536b3a96226ad02e0f7ab7ae472b27a8e'),
+    merkle_root: hex('8957e5e8d2f0e90c42e739ec62fcc5dd21064852da64b6528ebd46567f222169'),
     height: 0,
-    nonce: 2083236893,
+    nonce: 538548,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1231006505,
-    bits: 486604799,
+    timestamp: 1390598806,
+    bits: 504365055,
   },
   dnsSeeds: [
-    'seed.bitcoin.sipa.be',
-    'dnsseed.bluematt.me',
-    'dnsseed.bitcoin.dashjr.org',
-    'seed.bitcoinstats.com',
-    'seed.bitnodes.io',
-    'bitseed.xf2.org'
+    'seed.aur.co.vu'
   ],
-  defaultClientPort: 8333
+  defaultClientPort: 12340
 };
 
 exports.mainnet = exports.livenet;
 
 exports.testnet = {
   name: 'testnet',
-  magic: hex('0b110907'),
-  addressVersion: 0x6f,
-  privKeyVersion: 239,
+  magic: hex('ebb0a6cb'),
+  addressVersion: 0x41,
+  privKeyVersion: 193,
   P2SHVersion: 196,
   hkeyPublicVersion: 0x043587cf,
   hkeyPrivateVersion: 0x04358394,
   genesisBlock: {
-    hash: hex('43497FD7F826957108F4A30FD9CEC3AEBA79972084E90EAD01EA330900000000'),
-    merkle_root: hex('3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A'),
+    hash: hex('f423fe8eb935851f4baa40cfeb7120d84be32adf7876abf0fd293358a90f27a0'),
+    merkle_root: hex('6921227F5646BD8E52B664DA52480621DDC5FC62EC39E7420CE9F0D2E8E55789'),
     height: 0,
-    nonce: 414098458,
+    nonce: 2543986232,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1296688602,
-    bits: 486604799,
+    timestamp: 1396273344,
+    bits: 504365055,
   },
   dnsSeeds: [
-    'testnet-seed.bitcoin.petertodd.org',
-    'testnet-seed.bluematt.me'
+    'testnet-seed.aur.co.vu'
   ],
-  defaultClientPort: 18333
+  defaultClientPort: 19117
 };

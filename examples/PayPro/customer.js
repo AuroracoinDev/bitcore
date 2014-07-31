@@ -194,7 +194,7 @@ function sendPayment(msg, callback) {
     var payment_url = pd.get('payment_url');
     var merchant_data = pd.get('merchant_data');
 
-    print('You are currently on this BTC network:');
+    print('You are currently on this AUR network:');
     print(network);
     print('The server sent you a message:');
     print(memo);
@@ -297,20 +297,20 @@ function sendPayment(msg, callback) {
 
 // URI Spec
 // A backwards-compatible request:
-// bitcoin:mq7se9wy2egettFxPbmn99cK8v5AFq55Lx?amount=0.11&r=https://merchant.com/pay.php?h%3D2a8628fc2fbe
+// auroracoin:mq7se9wy2egettFxPbmn99cK8v5AFq55Lx?amount=0.11&r=https://merchant.com/pay.php?h%3D2a8628fc2fbe
 // Non-backwards-compatible equivalent:
-// bitcoin:?r=https://merchant.com/pay.php?h%3D2a8628fc2fbe
+// auroracoin:?r=https://merchant.com/pay.php?h%3D2a8628fc2fbe
 function parseMerchantURI(uri) {
-  uri = uri || 'bitcoin:?r=https://localhost:' + port + '/-/request';
+  uri = uri || 'auroracoin:?r=https://localhost:' + port + '/-/request';
   var query, id;
-  if (uri.indexOf('bitcoin:') !== 0) {
-    throw new Error('Not a Bitcoin URI.');
+  if (uri.indexOf('auroracoin:') !== 0) {
+    throw new Error('Not a Auroracoin URI.');
   }
   if (~uri.indexOf(':?')) {
     query = uri.split(':?')[1];
   } else {
     // Legacy URI
-    uri = uri.substring('bitcoin:'.length);
+    uri = uri.substring('auroracoin:'.length);
     uri = uri.split('?');
     id = uri[0];
     query = uri[1];

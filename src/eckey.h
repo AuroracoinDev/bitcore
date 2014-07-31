@@ -7,7 +7,7 @@
 using namespace v8;
 using namespace node;
 
-namespace bitcoin {
+namespace auroracoin {
 
 class Key : ObjectWrap
 {
@@ -105,6 +105,6 @@ public:
     SignSync(const Arguments& args);
 };
 
-};	// namespace bitcoin
+};	// namespace auroracoin
 
 #endif

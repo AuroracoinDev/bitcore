@@ -20,7 +20,7 @@ describe('ScriptInterpreter', function() {
   });
 
   describe('SIGHASH constants', function() {
-    it('should equal the values from bitcoin core', function() {
+    it('should equal the values from auroracoin core', function() {
       ScriptInterpreter.SIGHASH_ALL.should.equal(1);
       ScriptInterpreter.SIGHASH_NONE.should.equal(2);
       ScriptInterpreter.SIGHASH_SINGLE.should.equal(3);

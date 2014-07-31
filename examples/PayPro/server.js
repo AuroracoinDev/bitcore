@@ -234,7 +234,7 @@ app.post('/-/pay', function(req, res, next) {
   print(pay);
 
   // We send this to the customer after receiving a Payment
-  // Then we propogate the transaction through bitcoin network
+  // Then we propogate the transaction through auroracoin network
   var ack = new PayPro();
   ack = ack.makePaymentACK();
   ack.set('payment', pay.message);
@@ -276,7 +276,7 @@ app.post('/-/pay', function(req, res, next) {
           conn.sendTx(tx);
         });
       } else {
-        print('No BTC network connection. Retrying...');
+        print('No AUR network connection. Retrying...');
         conn = peerman.getActiveConnection();
         retry();
       }
@@ -287,7 +287,7 @@ app.post('/-/pay', function(req, res, next) {
 });
 
 /**
- * Bitcoin
+ * Auroracoin
  */
 
 var conn;

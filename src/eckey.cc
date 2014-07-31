@@ -55,7 +55,7 @@ int static inline EC_KEY_regenerate_key(EC_KEY *eckey, const BIGNUM *priv_key)
   return(ok);
 }
 
-namespace bitcoin {
+namespace auroracoin {
 
 void Key::Generate()
 {
@@ -466,7 +466,7 @@ Key::AddUncompressed(const Arguments& args)
   rx = BN_new();
   ry = BN_new();
   EC_POINT_get_affine_coordinates_GFp(group, r, rx, ry, ctx);
-  
+
   rbuf = Buffer::New(65);
   EC_POINT_point2oct(group, r, POINT_CONVERSION_UNCOMPRESSED, (unsigned char *)Buffer::Data(rbuf), 65, ctx);
 
@@ -748,12 +748,12 @@ Key::SignSync(const Arguments& args)
 
 Persistent<FunctionTemplate> Key::s_ct;
 
-};	// namespace bitcoin
+};	// namespace auroracoin
 
 extern "C" void
 init (Handle<Object> target)
 {
-  bitcoin::Key::Init(target);
+  auroracoin::Key::Init(target);
 }
 
 NODE_MODULE(KeyModule, init)

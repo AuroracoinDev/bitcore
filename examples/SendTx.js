@@ -87,7 +87,7 @@ var run = function() {
       console.log('-------------------------------------');
       console.log(raw_tx);
       console.log('-------------------------------------');
-      // finally, send transaction to the bitcoin network
+      // finally, send transaction to the auroracoin network
       conn.sendTx(tx);
 
       // for now, the network won't respond in any case

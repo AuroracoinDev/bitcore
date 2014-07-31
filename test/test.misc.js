@@ -108,7 +108,7 @@ describe('Miscelaneous stuff', function() {
   });
   testdata.dataEncodeDecode.forEach(function(datum) {
     it('base58 encode/decode checks ' + datum, function() {
-      // from bitcoin/bitcoin tests:
+      // from bitcoin/auroracoin tests:
       // Goal: test low-level base58 encoding functionality
       base58.encode(new Buffer(datum[0], 'hex')).should.equal(datum[1]);
       buffertools.toHex(base58.decode(datum[1])).should.equal(datum[0]);

@@ -1,6 +1,6 @@
 'use strict';
 
-// inspired in bitcoin core test:
+// inspired in auroracoin core test:
 // https://github.com/bitcoin/bitcoin/blob/7d49a9173ab636d118c2a81fc3c3562192e7813a/src/test/sighash_tests.cpp
 
 var chai = chai || require('chai');
@@ -96,7 +96,7 @@ var randomTx = function(single) {
 
 
 var oneBuffer = function() {
-  // bug present in bitcoind which must be also present in bitcore
+  // bug present in auroracoind which must be also present in bitcore
   // see https://bitcointalk.org/index.php?topic=260595
   var ret = new Buffer(32);
   ret.writeUInt8(1, 0);
@@ -164,7 +164,7 @@ describe('Transaction sighash (#hashForSignature)', function() {
       var ser_tx = buffertools.toHex(tx.serialize());
       ser_tx.should.equal(buffertools.toHex(raw_tx));
       var h = buffertools.toHex(tx.hashForSignature(scriptPubKey, input_index, hashType));
-      h.should.equal(sighash); // compare our output with bitcoind's output
+      h.should.equal(sighash); // compare our output with auroracoind's output
     });
 
   });

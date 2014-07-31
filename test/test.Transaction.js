@@ -61,7 +61,7 @@ describe('Transaction', function() {
   });
 
   /*
-   * Bitcoin core transaction tests
+   * Auroracoin core transaction tests
    */
   // Verify that known valid transactions are intepretted correctly
   var coreTest = function(data, valid) {
@@ -120,7 +120,7 @@ describe('Transaction', function() {
   coreTest(testdata.dataTxInvalid, false);
 
   it('#normalized hash', function() {
-    // string output generated from: bitcoind createrawtransaction '[{'txid': '2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1','vout':1},{'txid':'2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2','vout':0}  ]' '{'mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE':0.08}'
+    // string output generated from: auroracoind createrawtransaction '[{'txid': '2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1','vout':1},{'txid':'2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2','vout':0}  ]' '{'mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE':0.08}'
     //
     var tx = new Transaction();
     tx.parse(new Buffer('0100000002c1cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0100000000ffffffffc2cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0000000000ffffffff0100127a00000000001976a914774e603bafb717bd3f070e68bbcccfd907c77d1388ac00000000', 'hex'));
@@ -151,7 +151,7 @@ describe('Transaction', function() {
       amount: 0.5001,
       confirmations: 200
     }];
-    
+
     var destAddress = 'myuAQcCc1REUgXGsCTiYhZvPPc3XxZ36G1';
     var outs = [{
       address: destAddress,

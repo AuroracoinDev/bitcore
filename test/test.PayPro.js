@@ -235,7 +235,7 @@ describe('PayPro', function() {
       var paypro = new PayPro();
       paypro.makePayment();
       paypro.set('memo', 'test memo');
-      paypro.getContentType().should.equal('application/bitcoin-payment');
+      paypro.getContentType().should.equal('application/auroracoin-payment');
     });
 
   });

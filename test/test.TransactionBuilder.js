@@ -213,20 +213,20 @@ describe('TransactionBuilder', function() {
   });
 
 
-  it('should create same output as bitcoind createrawtransaction ', function() {
+  it('should create same output as auroracoind createrawtransaction ', function() {
     var tx = getBuilder2().build();
 
-    // string output generated from: bitcoind createrawtransaction '[{"txid": "2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1","vout":1},{"txid":"2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2","vout":0}  ]' '{"mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE":0.08,"mwZabyZXg8JzUtFX1pkGygsMJjnuqiNhgd":0.0299}'
+    // string output generated from: auroracoind createrawtransaction '[{"txid": "2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1","vout":1},{"txid":"2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2","vout":0}  ]' '{"mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE":0.08,"mwZabyZXg8JzUtFX1pkGygsMJjnuqiNhgd":0.0299}'
     tx.serialize().toString('hex').should.equal('0100000002c1cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0100000000ffffffffc2cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0000000000ffffffff0200127a00000000001976a914774e603bafb717bd3f070e68bbcccfd907c77d1388acb09f2d00000000001976a914b00127584485a7cff0949ef0f6bc5575f06ce00d88ac00000000');
 
   });
 
-  it('should create same output as bitcoind createrawtransaction wo remainder', function() {
+  it('should create same output as auroracoind createrawtransaction wo remainder', function() {
 
     //no remainder
     var tx = getBuilder2(0.03).build();
 
-    // string output generated from: bitcoind createrawtransaction '[{"txid": "2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1","vout":1},{"txid":"2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2","vout":0}  ]' '{"mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE":0.08}'
+    // string output generated from: auroracoind createrawtransaction '[{"txid": "2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc1","vout":1},{"txid":"2ac165fa7a3a2b535d106a0041c7568d03b531e58aeccdd3199d7289ab12cfc2","vout":0}  ]' '{"mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE":0.08}'
     //
     tx.serialize().toString('hex').should.equal('0100000002c1cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0100000000ffffffffc2cf12ab89729d19d3cdec8ae531b5038d56c741006a105d532b3a7afa65c12a0000000000ffffffff0100127a00000000001976a914774e603bafb717bd3f070e68bbcccfd907c77d1388ac00000000');
   });
@@ -425,8 +425,8 @@ describe('TransactionBuilder', function() {
 
 
   it('should generate dynamic fee and readjust (and not) the selected UTXOs (case1)', function() {
-    //this cases exceeds the input by 1mbtc AFTEr calculating the dynamic fee,
-    //so, it should trigger adding a new 10BTC utxo
+    //this cases exceeds the input by 1maur AFTEr calculating the dynamic fee,
+    //so, it should trigger adding a new 10AUR utxo
     //
 
     var outs = [];
@@ -442,7 +442,7 @@ describe('TransactionBuilder', function() {
 
     tx.getSize().should.equal(3560);
 
-    // ins = 11.0101 BTC (2 inputs: 1.0101 + 10 );
+    // ins = 11.0101 AUR (2 inputs: 1.0101 + 10 );
     parseInt(b.valueInSat.toString()).should.equal(11.0101 * util.COIN);
     tx.ins.length.should.equal(2);
 
@@ -453,7 +453,7 @@ describe('TransactionBuilder', function() {
     // 3560 bytes tx -> 0.0004
     b.feeSat.should.equal(0.0004 * util.COIN);
 
-    // 101 * 0.01 = 1.01BTC; + 0.0004 fee = 1.0104btc
+    // 101 * 0.01 = 1.01AUR; + 0.0004 fee = 1.0104aur
     // remainder = 11.0101-1.0104 = 9.9997
 
     parseInt(b.remainderSat.toString()).should.equal(parseInt(9.9997 * util.COIN));
@@ -477,12 +477,12 @@ describe('TransactionBuilder', function() {
 
     tx.getSize().should.equal(3485);
 
-    // ins = 1.0101 BTC (1 inputs: 1.0101 );
+    // ins = 1.0101 AUR (1 inputs: 1.0101 );
     parseInt(b.valueInSat.toString()).should.equal(1.0101 * util.COIN);
     tx.ins.length.should.equal(1);
 
     // outs = 100 outs:
-    // 100 * 0.01 = 1BTC; + 0.0004 fee = 1.0004btc
+    // 100 * 0.01 = 1AUR; + 0.0004 fee = 1.0004aur
     // remainder = 1.0101-1.0004 = 0.0097
 
     // outs = 101 outs + 1 remainder
@@ -492,7 +492,7 @@ describe('TransactionBuilder', function() {
     // 3560 bytes tx -> 0.0004
     b.feeSat.should.equal(0.0004 * util.COIN);
 
-    // 101 * 0.01 = 1.01BTC; + 0.0004 fee = 1.0104btc
+    // 101 * 0.01 = 1.01AUR; + 0.0004 fee = 1.0104aur
     // remainder = 11.0101-1.0104 = 9.9997
     parseInt(b.remainderSat.toString()).should.equal(parseInt(0.0097 * util.COIN));
     util.valueToBigInt(tx.outs[N].v).cmp(970000).should.equal(0);
@@ -716,7 +716,7 @@ describe('TransactionBuilder', function() {
   };
 
   //
-  // bitcoind  createmultisig 3 '["03197599f6e209cefef07da2fddc6fe47715a70162c531ffff8e611cef23dfb70d" ,  "0380a29968851f93af55e581c43d9ef9294577a439a3ca9fc2bc47d1ca2b3e9127"  ,  "0392dccb2ed470a45984811d6402fdca613c175f8f3e4eb8e2306e8ccd7d0aed03",     "03a94351fecc4328bb683bf93a1aa67378374904eac5980c7966723a51897c56e3"  ,  "03e085eb6fa1f20b2722c16161144314070a2c316a9cae2489fd52ce5f63fff6e4" ]'
+  // auroracoind  createmultisig 3 '["03197599f6e209cefef07da2fddc6fe47715a70162c531ffff8e611cef23dfb70d" ,  "0380a29968851f93af55e581c43d9ef9294577a439a3ca9fc2bc47d1ca2b3e9127"  ,  "0392dccb2ed470a45984811d6402fdca613c175f8f3e4eb8e2306e8ccd7d0aed03",     "03a94351fecc4328bb683bf93a1aa67378374904eac5980c7966723a51897c56e3"  ,  "03e085eb6fa1f20b2722c16161144314070a2c316a9cae2489fd52ce5f63fff6e4" ]'
   //
   // =>
   //
@@ -1074,7 +1074,7 @@ describe('TransactionBuilder', function() {
 
 
     it('should merge signed signed txs', function() {
-      // same signature 
+      // same signature
       //  -> keep first signature
       var b = getBuilder3([{
           address: 'mrPnbY1yKDBsdgbHbS7kJ8GVm8F66hWHLE',

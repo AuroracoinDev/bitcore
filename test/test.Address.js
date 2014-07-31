@@ -35,8 +35,8 @@ describe('Address', function() {
     ['1A Na15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', false], // invalid chars
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62j', false], // checksums don't match.
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62!', false], // bad char (!)
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62iz', false], // too long Bitcoin address
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62izz', false], // too long Bitcoin address
+    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62iz', false], // too long Auroracoin address
+    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62izz', false], // too long Auroracoin address
     ['2cFupjhnEsSn59qHXstmK2ffpLv2', false], // valid base58 invalid data
     ['dB7cwYdcPSgiyAwKWL3JwCVwSk6epU2txw', false], // valid base58, valid length, invalid network
     ['2MnmgiRH4eGLyLc9eAqStzk7dFgBjFtUCtu', false], // valid base58, valid length, invalid network
@@ -220,7 +220,7 @@ describe('Address', function() {
 
   describe('#fromScriptPubKey', function() {
 
-    // All examples checked againt bitcoind decodescript
+    // All examples checked againt auroracoind decodescript
     var cases = [
       ['76a91423b7530a00dd7951e11791c529389421c0b8d83b88ac', 'mimoZNLcP2rrMRgdeX5PSnR7AjCqQveZZ4'],
       ['a9147049be48e74a660157da3ed64569981592f7fa0587', '2N3Ux1YTnt1ixofYvJfaabqZSj2MBF3jsmv'],
